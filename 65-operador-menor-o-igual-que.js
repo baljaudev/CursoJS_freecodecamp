@@ -1,0 +1,1 @@
+console.log(5 <= 5); //true, 5 es menor o igual que 5
