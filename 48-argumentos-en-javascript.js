@@ -12,9 +12,12 @@ var b = 6;
 sumar(a,b);
 
 
+const listaMotos = []; //declaramos de forma global porque necesitaremos usarla dentro y fuera de la función
 //Ejemplo con String:
-function concatenarDosCadenas(frase1, frase2) {
-    console.log(frase1 + " " + frase2);
+function miMotoFavorita(marca, modelo) { //recoge por parámetro los dos string
+    console.log("Mi moto favorita es: " + marca + " " + modelo); //los muestra por pantalla
+    listaMotos.push(marca + " " + modelo); //añade los dos string como un elemento al final de un array
 }
 
-concatenarDosCadenas("Estoy aprendiendo", "JavaScript");
+miMotoFavorita("Honda", "Rebel"); //ejecutamos la función y le indicamos los parámetros
+console.log("Listado de motos: " + listaMotos); //mostramos el array con el elemento añadido
