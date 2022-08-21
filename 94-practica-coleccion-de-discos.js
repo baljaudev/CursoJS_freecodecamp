@@ -6,7 +6,7 @@ asociado a otras propiedades.
 No todos los álbumes tienen la información completa.
 */
 
-var coleccionDeDiscos = {
+let coleccionDeDiscos = {
     7853: {
         tituloDelAlbum: "Bee Gees Greatest",
         artista: "Bee Gees",
@@ -28,10 +28,10 @@ para modificar el objeto pasado a la función:
 - Si "valor" es una cadena vacía, elimina la propiedad 
 del álbum correspondiente.
 - Si "propiedad" es igual a la cadena de caracteres "canciones" pero 
-el álbum no tiene una propiedad llamada "canciones", crea un arreglo 
-vacío y agrega "valor" a ese arreglo.
+el álbum no tiene una propiedad llamada "canciones", crea un array 
+vacío y agrega "valor" a ese array.
 - Si "propiedad" es igual a la cadena de caracteres "canciones" y 
-"valor" no es una cadena vacía, agrega "valor" al final del arreglo 
+"valor" no es una cadena vacía, agrega "valor" al final del array 
 de canciones del álbum correspondiente.
 - Si "valor" no es una cadena vacía y "propiedad" no es igual a 
 "canciones", asigna el valor del parámetro "valor" a la propiedad.
@@ -39,10 +39,14 @@ Si la propiedad no existe, debes crearla y asignar este valor.
 */
 
 function actualizarDiscos(discos, id, propiedad, valor) {
-    if (valor == "") {
+    if (valor === "") {
         delete coleccionDeDiscos[discos][id][propiedad];
-    } else if (propiedad == "canciones") {
+    } else if (propiedad === "canciones" || (!coleccionDeDiscos[discos][id].hasOwnProperty("canciones"))) {
         propiedad = [];
+        coleccionDeDiscos[discos][id][propiedad].push(valor);
+    } else if (propiedad === "canciones" || valor !== "") {
+        coleccionDeDiscos[discos][id][propiedad].push(valor);
+    } else {
         coleccionDeDiscos[discos][id][propiedad] = valor;
     }
 }

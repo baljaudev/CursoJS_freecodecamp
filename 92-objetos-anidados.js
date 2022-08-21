@@ -4,14 +4,14 @@ let recetaBrownie = {
     "tiempoMin" : 70,
     "ingredientes": {
         "masa": {
-        "harina": "100 grs",
-        "sal": "1 cucharadita",
-        "agua": "1 taza"
+            "harina": "100 grs",
+            "sal": "1 cucharadita",
+            "agua": "1 taza"
         },
         "cobertura": {
-        "azucar": "120 grs",
-        "chocolate": "4 cucharadas",
-        "mantequilla": "200 grs"
+            "azucar": "120 grs",
+            "chocolate": "4 cucharadas",
+            "mantequilla": "200 grs"
         }
     }
 };
