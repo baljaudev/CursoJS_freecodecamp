@@ -40,13 +40,19 @@ Si la propiedad no existe, debes crearla y asignar este valor.
 
 function actualizarDiscos(discos, id, propiedad, valor) {
     if (valor === "") {
-        delete coleccionDeDiscos[discos][id][propiedad];
-    } else if (propiedad === "canciones" || (!coleccionDeDiscos[discos][id].hasOwnProperty("canciones"))) {
-        propiedad = [];
-        coleccionDeDiscos[discos][id][propiedad].push(valor);
-    } else if (propiedad === "canciones" || valor !== "") {
-        coleccionDeDiscos[discos][id][propiedad].push(valor);
+        delete discos[id][propiedad]; //elimina la propiedad del album
+    } else if (propiedad === "canciones" && (!discos[id].hasOwnProperty(propiedad))) {
+        discos[id][propiedad] = []; //si no existe la propidad canciones, creamos array para esa propiedad
+        discos[id][propiedad].push(valor); //y añadimos el valor al array recién creado
+    } else if (propiedad === "canciones" && valor !== "") {
+        discos[id][propiedad].push(valor); //la propiedad 'canciones' ya existe y añadimos el valor a ese array
     } else {
-        coleccionDeDiscos[discos][id][propiedad] = valor;
+        discos[id][propiedad] = valor; //si la propiedad no es canciones, la creamos (solo si no existía) y añadimos el valor
     }
 }
+
+console.log(coleccionDeDiscos[5439].canciones);
+
+actualizarDiscos(coleccionDeDiscos, 5439, "canciones", "Mamma Mia");
+
+console.log(coleccionDeDiscos[5439].canciones);
